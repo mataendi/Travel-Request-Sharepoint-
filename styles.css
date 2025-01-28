@@ -1,0 +1,1015 @@
+
+:root {
+    --primary-color: #ff007f;
+    --secondary-color: #00f5d4;
+    --bg-color: #1e1e2e;
+    --input-bg: #2e2e3e;
+    --input-border: #3e3e4e;
+    --input-focus: #ffba24;
+    --text-color: #e0e0e0;
+    --label-color: #a0a0b0;
+    --yes-color: #f9ca24;
+    --no-color: #ff007f;
+    --car-color: #3498db;
+    --button-primary: #ffba24;
+    --button-hover: #fdedca;
+    --error-color: #ce2029;
+    --selected-color: rgb(85, 255, 85);
+    --confirmed-color: rgb(191, 252, 100);
+}
+
+ 
+.fullApp{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    font-family: 'Poppins', sans-serif;
+}
+
+/*    FULLSITE view
+
+.fullApp{ 
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+  
+} */
+
+
+
+#header-title-container{
+    max-height: 10%;
+    z-index: 1000;
+}
+
+#mainContainer {
+    margin: 0 auto;
+    position: relative;
+    background: var(--input-bg);
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    padding: 2vh;
+    max-width: 100%;
+    width: 100%;
+    animation: fadeIn 0.5s ease-out;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+   
+}
+
+#mainContainer.loading {
+    background: none; 
+    width: 30%;
+}
+
+#mainContainer.loading::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://yourImage.jpg');
+    background-repeat: repeat-x;
+    background-size: contain; 
+    animation: backgroundScroll 20s linear infinite;
+    z-index: -1;
+    border-radius: 15px;
+}
+#mainForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    
+  
+}
+
+.userForm {
+    display: flex;
+    flex-direction: column;
+/*      gap: 15px; */
+    max-height: 95%;
+}
+
+.userForm input{
+    max-height: 5% !important;
+}
+
+.userDetails{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+    margin-bottom: 50px;
+    max-width: 95%;
+}
+
+.reasonContainer{
+    max-width: 95%;
+}
+
+.label {
+    font-weight: 600;
+    color: var(--label-color);
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid var(--input-border);
+    border-radius: 10px;
+    background: var(--input-bg);
+    color: var(--text-color);
+    font-size: 16px;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    max-height: 4vh !important;
+}
+
+input[type="text"]:focus {
+    border-color: 2px solid var(--input-focus);
+    background-color: #39394e;
+    outline: none;
+}
+
+input:disabled {
+    border: 2px solid var(--input-border) !important;
+    background-color: var(--input-bg) !important;
+    outline: none;
+    max-width: 90%;
+}
+
+
+
+.radioButtons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    border: 2px solid var(--input-border);
+    border-radius: 10px;
+    background: var(--input-bg);
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    max-height: 2vh !important;
+    width: 100%;
+    max-width: 95%;
+}
+
+.radioButtons input[type="radio"] {
+    display: none;
+}
+
+.radioButtons label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.radioButtons input[type="radio"]:checked + label[for="transferInlandYes"] {
+    background-color: var(--yes-color);
+    color: var(--bg-color);
+    max-height: 1vh !important;
+}
+
+.radioButtons input[type="radio"]:checked + label[for="transferInlandNo"] {
+    background-color: var(--no-color);
+    color: var(--bg-color);
+    max-height: 1vh !important;
+}
+
+.radioButtons input[type="radio"]:checked + label[for="transferInlandCar"] {
+    background-color: var(--car-color);
+    color: var(--bg-color);
+    max-height: 1vh !important;
+}
+
+.radioButtons input[type="radio"]:checked + label[for="transferOtherCountryYes"] {
+    background-color: var(--yes-color);
+    color: var(--bg-color);
+    max-height: 1vh !important;
+}
+
+.radioButtons input[type="radio"]:checked + label[for="transferOtherCountryNo"] {
+    background-color: var(--no-color);
+    color: var(--bg-color);
+    max-height: 1vh !important;
+}
+
+.radioButtons label:hover {
+    background-color: #39394e;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.icon {
+    font-size: 18px;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+    max-height: 10vh !important;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 10px;
+    background: var(--button-primary);
+    color: var(--bg-color);
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.button i {
+    margin-right: 5px;
+}
+
+.button:hover {
+    color: var(--bg-color);
+    border-color: var(--input-bg);
+    background-color: var(--button-hover);
+}
+
+.button:active {
+    background-color: var(--button-primary);
+    color: var(--bg-color);
+    border-color: var(--button-primary);
+}
+
+
+
+
+@keyframes disintegrateAnimation {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+@keyframes reintegrateAnimation {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.invalid-input {
+    border-color: var(--error-color);
+    animation: shake 0.3s ease-in-out;
+}
+
+
+input.invalid-input[type="text"] {
+    border-color: var(--error-color);
+    animation: shake 0.3s ease-in-out;
+}
+
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-10px); }
+    40% { transform: translateX(10px); }
+    60% { transform: translateX(-10px); }
+    80% { transform: translateX(10px); }
+    100% { transform: translateX(0); }
+}
+
+
+#calendar {
+    flex: 1;
+    background-color: var(--input-bg);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    height: 90%;
+    overflow-y: auto;
+}
+
+#calendarView{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 90%;
+}
+
+
+#calendarControls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    background-color: var(--input-bg);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: var(--text-color);
+}
+
+#calendarControls span {
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#calendarControls span:hover {
+    color: var(--primary-color);
+}
+
+#calendarGrid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendar-day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    background-color: var(--bg-color);
+    border-radius: 5px;
+    color: var(--text-color);
+    border: 1px solid var(--input-border); 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.empty {
+    background-color: transparent;
+}
+
+.calendar-day:hover {
+    background-color: var(--input-bg);
+    color: var(--primary-color);
+}
+
+#currentMonthYear {
+    font-weight: 600;
+    font-size: 18px;
+    grid-column: 1 / -1; 
+    text-align: center; 
+    margin-bottom: 10px; 
+}
+
+.selected-start {
+    background-color: var(--selected-color);
+    color: var(--bg-color);
+}
+
+.selected-end {
+    background-color: var(--error-color);
+    color: var(--bg-color);
+}
+
+.selected-range {
+    background-color: var(--input-focus);
+    color: var(--bg-color);
+}
+
+.selected-range {
+    background-color: var(--input-focus);
+    color: var(--bg-color);
+}
+
+#calendarDetails {
+    margin-top: 20px;
+    width: 60%;
+    background-color: var(--input-bg);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+#calendarDetails input[type="text"],
+#calendarDetails input[type="time"],
+#calendarDetails input[type="radio"] {
+    width: 100%;
+    height: 48px; 
+    border: 2px solid var(--input-border);
+    border-radius: 10px;
+    background: var(--input-bg);
+    color: var(--text-color);
+    font-size: 16px;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+
+#calendarDetails input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+#calendarDetails input[type="radio"] {
+    width: auto;
+    display: inline-block; 
+    margin: 0; 
+    vertical-align: middle;
+}
+
+#calendarDetails input[type="text"]:focus,
+#calendarDetails input[type="time"]:focus,
+#calendarDetails input[type="radio"]:focus {
+    border-color: var(--input-focus);
+    background-color: #39394e;
+    outline: none;
+}
+
+
+
+input[type="time"] {
+    height: auto;
+    width: 30%;
+}
+
+
+.travelType {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 40px;
+}
+
+.travelType label {
+    position: relative;
+    cursor: pointer;
+}
+
+.travelType input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.travelType i {
+    font-size: 24px;
+    color: var(--label-color);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+
+.travelType input[type="radio"]:checked + i {
+    color: var(--button-primary);
+}
+
+.travelType input[type="radio"]:active + i {
+    color: var(--button-primary);
+}
+
+
+.travelType label:hover i {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+
+.fromWhere,
+.whereTo {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.fromWhere span,
+.whereTo span {
+    font-weight: 600;
+    color: var(--label-color);
+    margin-bottom: 10px; 
+    display: block; 
+}
+
+.fromWhere input,
+.whereTo input {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border: 2px solid var(--input-border);
+    border-radius: 8px;
+    background: var(--input-bg);
+    color: var(--text-color);
+    font-size: 16px;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.fromWhere input:focus,
+.whereTo input:focus {
+    border-color: var(--input-focus);
+    background-color: #39394e;
+    outline: none;
+}
+
+input[type="time"] {
+    width: 30%;
+    height: 100%;
+    padding: 10px;
+    border: 2px solid var(--input-border);
+    border-radius: 8px;
+    background: var(--input-bg);
+    color: var(--text-color);
+    font-size: 16px;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+input[type="time"]:focus {
+    border-color: var(--input-focus);
+    background-color: #39394e;
+    outline: none;
+}
+
+.calendarDetail{
+    display: flex;
+    flex-direction: row;
+
+
+}
+
+.detailActions span{
+    width: 50%;
+    text-align: center;
+}
+
+.rotateUp {
+    display: inline-block;
+    transform: rotate(-90deg);
+}
+
+
+#tickets {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #ccc transparent; 
+
+
+}
+
+#tickets::-webkit-scrollbar {
+    width: 8px; 
+}
+
+#tickets::-webkit-scrollbar-thumb {
+    background-color: #ccc; 
+    border-radius: 4px;
+}
+
+#tickets::-webkit-scrollbar-track {
+    background-color: transparent; 
+}
+
+
+#tickets i{
+    font-size: 24px;;
+}
+
+.ticket {
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out; 
+    height: fit-content;
+
+}
+
+
+
+
+.ticket img {
+    width: 16px;
+    height: 16px;
+}
+
+.ticketContent {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.travelSummary {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.label {
+font-size: 18px;
+font-weight: bold;
+margin-bottom: 10px;
+}
+
+.countryDetails {
+display: flex;
+flex-direction: row;
+gap: 20px;
+}
+
+.ticketColumn {
+display: flex;
+flex-direction: column;
+}
+
+.flag {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.time {
+font-size: 16px;
+}
+
+.mirror{
+    transform: scaleX(-1);
+}
+.ticketActionsContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.checkBlock{
+    display: flex;
+    width: 100%;
+}
+
+.colleagueCards{
+    width: 50%;
+}
+
+.colleagueCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 50%;
+    margin:0 auto;
+}
+
+.labelTitle{
+    font-size: 20px;
+    color: var(--button-primary);
+}
+
+.check_no{
+    background-color: var(--no-color);
+    color: var(--bg-color);
+    padding: 5px;
+    border-radius: 10px;
+}
+.check_yes{
+    background-color: var(--confirmed-color);
+    color: var(--bg-color);
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.check_company{
+    background-color: var(--car-color);
+    color: var(--bg-color);
+    padding: 5px;
+    border-radius: 10px;
+}
+
+#submitButton{
+    width: 20%;
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+#userResults {
+    position: absolute; 
+    width: calc(30% - 16px); 
+    max-height: 200px;
+    overflow-y: auto; 
+    background-color: #fff; 
+    border: 1px solid #ccc; 
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    margin-top: -8px;
+}
+
+
+.userResultItem {
+    padding: 8px 12px;
+    cursor: pointer; 
+    border-bottom: 1px solid #eee;
+}
+
+
+.userResultItem:hover {
+    background-color: #f5f5f5; 
+}
+
+
+.userResultItem:last-child {
+    border-bottom: none;
+}
+
+
+
+.loadingContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
+    z-index: 1;
+}
+
+.planeFlying {
+    font-size: 2em; 
+    color: #000; 
+    animation: planeHoverAnim 3s infinite alternate;
+    
+}
+
+.planeFlying img{
+    width: 100px;
+    height: 100px;
+}
+
+@keyframes planeHoverAnim {
+    0% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(10px);
+    }
+}
+
+@keyframes backgroundScroll {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+.resultElement{
+    cursor: pointer;
+}
+
+.resultElement:hover{
+    background-color: var(--car-color);
+}
+
+.carImg img{
+    width: 100%;
+    height: 100%;
+}
+
+.carImg{
+    width: 100%;
+    height: 100%;
+}
+
+.success{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: 100%;
+    margin: 0 auto;
+    color: yellowgreen;
+    
+}
+
+.success i{
+    font-size: 120px;
+}
+
+.info{
+    font-style: italic;
+    text-align: center;
+}
+
+#fromWhere_city::placeholder,
+#whereTo_city::placeholder{
+    font-style: italic;
+}
+
+
+.columnDetailLeft{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    text-align: center;
+}
+
+.columnDetailRight{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+.tutorialBox {
+    position: absolute;
+    background-color: rgba(224, 224, 224, 0.95); 
+    color: var(--bg-color);
+    border: 2px solid var(--input-border); 
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    border-radius: 10px; 
+    max-width: 300px;
+    z-index: 1000; 
+    display: none; /
+}
+
+.highlighted {
+    border: 2px solid var(--button-primary);
+    border-radius: 10px;
+    padding: 50px;
+    position: relative;
+    overflow: hidden;
+    animation: pulseBorder 2s infinite ease-in-out;
+}
+.highlighted::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: 100%;
+    height: 100%;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    animation: animateBorder 1s infinite linear;
+}
+@keyframes pulseBorder {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 10px rgba(0, 123, 255, 0.3);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#travelTitle{
+    color: var(--label-color);
+    font-size:x-large;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#titleDate{
+    color: var(--button-primary);
+    font-size: smaller;
+}
+
+#travelTitleLayout{
+    display: flex;
+    flex-direction: column;
+}
+
+
+textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid var(--input-border);
+    border-radius: 6px;
+    background-color: var(--input-bg);
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    resize: none; 
+    outline: none; 
+    width: 100%;
+    max-height: 2vh !important;
+    overflow: hidden;
+}
+
+
+textarea:hover {
+border-color: #aaa;
+}
+
+
+textarea:focus {
+border-color: var(--button-primary);
+
+}
+
+
+textarea::placeholder {
+color: #999;
+}
+
+
+textarea:disabled {
+background-color: #eee;
+cursor: not-allowed;
+}
+
+#addedColleagues{
+    max-width: 550px;
+
+}
+
+.info .label{font-size: 14px;}
+
+
+/*       fullSite  
+
+.header-title{
+    color: var(--button-primary);
+    font-size:x-large;
+    font-weight: bold;
+    padding: 10px;
+    width: 80%;
+    text-align: center;
+  
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    max-height: 2vh;
+}
+*/
+.header-title{
+    color: var(--button-primary);
+    font-size:x-large;
+    font-weight: bold;
+    padding: 20px;
+    text-align: center;
+    background-color: var(--input-bg);
+    border-radius: 10px 10px 0 0;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 60%;
+    max-height: 2vh;
+    animation: fadeIn 1 1.2s;
+
+}
+
+.header-icon{
+    color: var(--error-color);
+    border-radius: 10px;
+    padding: 5px;
+}

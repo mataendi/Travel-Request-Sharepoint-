@@ -1,0 +1,194 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Request Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/country-select-js/2.0.2/css/countrySelect.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/country-select-js/2.0.2/js/countrySelect.min.js"></script>
+
+    <script type="text/javascript" src="/_layouts/15/init.js"></script>
+    <script type="text/javascript" src="/_layouts/15/MicrosoftAjax.js"></script>
+    <script type="text/javascript" src="/_layouts/15/sp.runtime.js"></script>
+    <script type="text/javascript" src="/_layouts/15/sp.js"></script>
+  
+    <script src="sharepointSite.com/folders/customLibrary.js"></script>
+  
+
+   
+
+
+
+</head>
+<body>
+    
+    <div class="fullApp">
+        <div id="header-title-container">        
+            <span class="header-title"><i class="fa-solid fa-route header-icon"></i><span >Requesting abroad travelling</span></span>
+        </div>
+
+
+    <div id="mainContainer">
+
+        <div id="mainForm">
+          
+            <div class="userForm" id="user0">
+                <div class="userDetails">
+                    <div class="nameContainer">
+                        <div class="label">Name</div>
+                        <input type="text" class="name" id="user0_name" oninput="searchUsers(this,'userResults',handleUserSearch)">
+                        <div id="box" style="display: none;">This is the box</div>
+                        <div id="userResults" style="display:none"></div>
+                        
+                    </div>
+                    <div class="jobTitleContainer">
+                        <div class="label">Job Title</div>
+                        <input type="text" class="jobTitle" id="user0_jobTitle" disabled>
+                    </div>
+                    <div class="costCenterContainer">
+                        <div class="label">Department</div>
+                        <input type="text" class="costCenter" id="user0_costCenter" disabled>
+                    </div>
+
+
+                </div>
+
+                <div class="reasonContainer">
+                    <div class="label">Purpose of travelling</div>
+                    <textarea name="reason" id="reason" class="reason"></textarea>
+                </div>
+
+                <div class="transferInlandContainer">
+                    <div class="label">Transfer inland</div>
+                    <div class="radioButtons">
+                        <input type="radio" id="transferInlandYes" name="transferInlandRadio" value="true">
+                        <label for="transferInlandYes">
+                            <i class="fa-solid fa-taxi"></i>
+                            Yes
+                        </label>
+                        <input type="radio" id="transferInlandNo" name="transferInlandRadio" value="false">
+                        <label for="transferInlandNo">
+                            <i class="fas fa-times icon"></i>
+                            No
+                        </label>
+                        <input type="radio" id="transferInlandCar" name="transferInlandRadio" value="companyCar">
+                        <label for="transferInlandCar">
+                            <i class="fa-solid fa-car-side"></i>
+                            Company car
+                        </label>
+                    </div>
+                </div>
+                <div class="transferOtherCountry">
+                    <div class="label">Transfer abroad</div>
+                    <div class="radioButtons">
+                        <input type="radio" id="transferOtherCountryYes" name="transferOtherCountryRadio" value="true">
+                        <label for="transferOtherCountryYes">
+                            <i class="fa-solid fa-taxi"></i>
+                            Yes
+                        </label>
+                        
+                        <input type="radio" id="transferOtherCountryNo" name="transferOtherCountryRadio" value="false">
+                        <label for="transferOtherCountryNo">
+                            <i class="fas fa-times icon"></i>
+                            No
+                        </label>
+                        
+                    </div>
+                </div>
+
+
+
+                <div class="buttonContainer">
+                    <span class="button" id="button_newColleague" onclick="addColleague()">
+                        <i class="fa-solid fa-plus"></i> Add
+                    </span>
+                    <span class="button" id="button_next" onclick="selectDate()">
+                        Next <i class="fa-solid fa-angles-right"></i>
+                    </span>
+                </div>
+
+                <span class="label" id="addedColleagues"></span>
+                
+
+            </div>
+           
+        </div>
+
+        <div id="calendarView" style="display: none;">
+            <div id="calendar">
+                <div id="calendarControls">
+                    <span id="prevMonth" onclick="changeMonth(-1)"><i class="fas fa-chevron-left"></i></span>
+                    <span id="currentMonthYear"></span>
+                    <span id="nextMonth" onclick="changeMonth(1)"><i class="fas fa-chevron-right"></i></span>
+                </div>
+                <div id="calendarGrid"></div>
+            </div>
+
+            <div id="calendarDetails">
+                <div id="travelTitle">Date of departure <span id="titleDate"></span></div>
+                <div class="travelType">
+                    <label>
+                        <input type="radio" name="travelOption" value="plane">
+                        <i class="fa-solid fa-plane rotateUp"></i>
+                    </label>
+                    <label>
+                        <input type="radio" name="travelOption" value="car">
+                        <i class="fa-solid fa-car-side car"></i>
+                    </label>
+                </div>
+                
+                <div class="fromWhere">
+                    <span>From where</span>
+                        <div class="calendarDetail">
+                            <div class="columnDetailLeft">
+                                <input type="text" id="fromWhere">
+                                <input type="search" id="fromWhere_city" placeholder="Please type in the city...">
+                            </div>
+
+                            <div class="columnDetailRight">
+                                <input type="time" id="fromWhere_time"> 
+                                <input type="hidden" id="fromWhere_code">
+                            </div>
+        
+            
+                        </div>
+                  
+                </div>
+                <div class="whereTo">
+                    <span>Where to</span>
+                    <div class="calendarDetail">
+                        <div class="columnDetailLeft">
+                            <input type="text" id="whereTo">
+                            <input type="search" id="whereTo_city" placeholder="Please type in the city...">
+                        </div>
+                        <div class="columnDetailRight">
+                            <input type="time" id="whereTo_time"> 
+                            <input type="hidden" id="whereTo_code">
+                        </div>
+                    </div>
+       
+                </div>
+
+                <div class="buttonContainer saveButtonContainer">
+               
+                    <span class="button" id="detailSaveButton" onclick="saveTime()"><i class="fa-solid fa-angles-right"> </i>Return trip</span>
+                </div>
+                
+
+            </div>
+            
+        </div>
+
+        <div id="tickets">
+        </div>
+    </div>
+        
+     
+    </div>
+
+
+
+</body>
+</html>
